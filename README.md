@@ -39,6 +39,7 @@ Run `bash run_iu_xray.sh` to train a model on the IU X-Ray data.
 
 Run `bash run_mimic_cxr.sh` to train a model on the MIMIC-CXR data.
 
+## Personal changes
 To do something new with the private data set, change the requirements to
 `torch==1.11.0+cu113` - `torchvision==0.12.0+cu113` - `opencv-python==4.4.0`
 
