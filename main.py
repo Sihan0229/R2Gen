@@ -1,10 +1,11 @@
 import torch
-import argparse
+import argparse # 解析命令行参数
 import numpy as np
-from modules.tokenizers import Tokenizer
-from modules.dataloaders import R2DataLoader
+# 自定义
+from modules.tokenizers import Tokenizer # 分词
+from modules.dataloaders import R2DataLoader # 数据加载器
 from modules.metrics import compute_scores
-from modules.optimizers import build_optimizer, build_lr_scheduler
+from modules.optimizers import build_optimizer, build_lr_scheduler # 构建优化器和学习率调度器的函数
 from modules.trainer import Trainer
 from modules.loss import compute_loss
 from models.r2gen import R2GenModel
