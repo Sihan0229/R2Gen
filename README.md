@@ -53,7 +53,7 @@ export JAVA_HOME=/usr/lib/jvm/default-java
 export PATH=$JAVA_HOME/bin:$PATH
 ```
 (and delete `source /etc/autodl-mot`)
-```
+
 finally
 ```
 source ~/.bashrc
