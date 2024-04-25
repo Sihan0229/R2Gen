@@ -18,11 +18,7 @@ If you use or extend our work, please cite our paper at EMNLP-2020.
 }
 ```
 
-## Requirements
-
-- `torch==1.5.1`
-- `torchvision==0.6.1`
-- `opencv-python==4.4.0.42`
+c
 
 
 ## Download R2Gen
@@ -42,3 +38,6 @@ Run `bash run_iu_xray.sh` to train a model on the IU X-Ray data.
 ## Run on MIMIC-CXR
 
 Run `bash run_mimic_cxr.sh` to train a model on the MIMIC-CXR data.
+
+To do something new with the private data set, change the requirements to
+`torch==1.11.0+cu113` - `torchvision==0.12.0+cu113` - `opencv-python==4.4.0`
