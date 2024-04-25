@@ -41,3 +41,20 @@ Run `bash run_mimic_cxr.sh` to train a model on the MIMIC-CXR data.
 
 To do something new with the private data set, change the requirements to
 `torch==1.11.0+cu113` - `torchvision==0.12.0+cu113` - `opencv-python==4.4.0`
+
+How to set java
+`sudo apt update`
+`sudo apt install default-jdk`
+`sudo apt install default-jdk`
+`vim ~/.bashrc`
+`export JAVA_HOME=/usr/lib/jvm/default-java`
+`export PATH=$JAVA_HOME/bin:$PATH`
+(and delete `source /etc/autodl-mot`)
+`source ~/.bashrc`
+
+anyway, make the `.bashrc`like:
+```
+source /etc/profile
+export JAVA_HOME=/usr/lib/jvm/default-java
+export PATH=$JAVA_HOME/bin:$PATH
+```
