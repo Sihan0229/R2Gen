@@ -10,11 +10,11 @@ from torch.nn.utils.rnn import PackedSequence, pack_padded_sequence, pad_packed_
 import modules.utils as utils
 from modules.caption_model import CaptionModel
 
-
+# 处理变长序列
 def sort_pack_padded_sequence(input, lengths):
     sorted_lengths, indices = torch.sort(lengths, descending=True)
     tmp = pack_padded_sequence(input[indices], sorted_lengths, batch_first=True)
-    inv_ix = indices.clone()
+    inv_ix = indices.clone() # (解包序列)复制排序后的索引，以便后续恢复原始顺序。
     inv_ix[indices] = torch.arange(0, len(indices)).type_as(inv_ix)
     return tmp, inv_ix
 
@@ -24,7 +24,9 @@ def pad_unsort_packed_sequence(input, inv_ix):
     tmp = tmp[inv_ix]
     return tmp
 
-
+# 包装器，用于在带有注意力屏蔽的情况下对输入特征进行打包和解包。
+# 注意力机制常常需要对序列进行操作，而这些操作可能会涉及到变长序列，
+# 因此需要使用打包和解包操作（刚刚定义的）。
 def pack_wrapper(module, att_feats, att_masks):
     if att_masks is not None:
         packed, inv_ix = sort_pack_padded_sequence(att_feats, att_masks.data.long().sum(1))
@@ -32,7 +34,7 @@ def pack_wrapper(module, att_feats, att_masks):
     else:
         return module(att_feats)
 
-
+# 基于注意力机制的图像描述生成模型
 class AttModel(CaptionModel):
     def __init__(self, args, tokenizer):
         super(AttModel, self).__init__()
@@ -81,7 +83,7 @@ class AttModel(CaptionModel):
         p_att_feats = self.ctx2att(att_feats)
 
         return fc_feats, att_feats, p_att_feats, att_masks
-
+# 获取下一个词的概率和状态方法
     def get_logprobs_state(self, it, fc_feats, att_feats, p_att_feats, att_masks, state, output_logsoftmax=1):
         # 'it' contains a word index
         xt = self.embed(it)
@@ -93,7 +95,7 @@ class AttModel(CaptionModel):
             logprobs = self.logit(output)
 
         return logprobs, state
-
+#束搜索
     def _sample_beam(self, fc_feats, att_feats, att_masks=None, opt={}):
         beam_size = opt.get('beam_size', 10)
         group_size = opt.get('group_size', 1)
@@ -229,7 +231,10 @@ class AttModel(CaptionModel):
 
         sample_method = opt.get('sample_method', 'greedy')
         beam_size = opt.get('beam_size', 1)
-        temperature = opt.get('temperature', 1.0)
+        # 如果温度较高，模型会更倾向于均匀分布地探索词汇空间，
+        # 从而产生更多的随机性和多样性；而如果温度较低，
+        # 模型会更倾向于选择概率较高的词汇，产生更加确定性和准确性的结果。
+        temperature = opt.get('temperature', 1.0) 
         group_size = opt.get('group_size', 1)
         diversity_lambda = opt.get('diversity_lambda', 0.5)
         decoding_constraint = opt.get('decoding_constraint', 0)
