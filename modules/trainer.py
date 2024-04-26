@@ -18,7 +18,7 @@ class BaseTrainer(object):
             self.model = torch.nn.DataParallel(model, device_ids=device_ids)
 
         self.criterion = criterion
-        self.metric_ftns = metric_ftns
+        self.metric_ftns = metric_ftns # 评估模型性能
         self.optimizer = optimizer
 
         self.epochs = self.args.epochs
@@ -30,6 +30,7 @@ class BaseTrainer(object):
         assert self.mnt_mode in ['min', 'max']
 
         self.mnt_best = inf if self.mnt_mode == 'min' else -inf
+        
         self.early_stop = getattr(self.args, 'early_stop', inf)
 
         self.start_epoch = 1
@@ -188,21 +189,27 @@ class Trainer(BaseTrainer):
     def _train_epoch(self, epoch):
 
         train_loss = 0
+#训练模式
         self.model.train()
         for batch_idx, (images_id, images, reports_ids, reports_masks) in enumerate(self.train_dataloader):
             images, reports_ids, reports_masks = images.to(self.device), reports_ids.to(self.device), reports_masks.to(
                 self.device)
+            # 前向输出
             output = self.model(images, reports_ids, mode='train')
+            # 损失值
             loss = self.criterion(output, reports_ids, reports_masks)
             train_loss += loss.item()
+            # 清除之前的梯度
             self.optimizer.zero_grad()
             loss.backward()
+            # 梯度进行裁剪，防止梯度爆炸
             torch.nn.utils.clip_grad_value_(self.model.parameters(), 0.1)
+            # 更新模型参数
             self.optimizer.step()
         log = {'train_loss': train_loss / len(self.train_dataloader)}
-
+#评估模式
         self.model.eval()
-        with torch.no_grad():
+        with torch.no_grad():#无需计算梯度
             val_gts, val_res = [], []
             for batch_idx, (images_id, images, reports_ids, reports_masks) in enumerate(self.val_dataloader):
                 images, reports_ids, reports_masks = images.to(self.device), reports_ids.to(
@@ -231,6 +238,6 @@ class Trainer(BaseTrainer):
                                         {i: [re] for i, re in enumerate(test_res)})
             log.update(**{'test_' + k: v for k, v in test_met.items()})
 
-        self.lr_scheduler.step()
+        self.lr_scheduler.step() # 更新学习率
 
         return log

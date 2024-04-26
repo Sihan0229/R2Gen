@@ -2,13 +2,13 @@ import torch
 
 
 def penalty_builder(penalty_config):
-    if penalty_config == '':
+    if penalty_config == '':# 原始的对数概率
         return lambda x, y: y
     pen_type, alpha = penalty_config.split('_')
     alpha = float(alpha)
-    if pen_type == 'wu':
+    if pen_type == 'wu':# 长度归一化
         return lambda x, y: length_wu(x, y, alpha)
-    if pen_type == 'avg':
+    if pen_type == 'avg':# 平均概率
         return lambda x, y: length_average(x, y, alpha)
 
 
