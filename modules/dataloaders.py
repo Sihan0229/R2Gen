@@ -10,7 +10,7 @@ class R2DataLoader(DataLoader):
         self.args = args
         self.dataset_name = args.dataset_name
         self.batch_size = args.batch_size
-        self.shuffle = shuffle
+        self.shuffle = shuffle # 是否在每个 epoch 开始时打乱数据
         self.num_workers = args.num_workers
         self.tokenizer = tokenizer
         self.split = split
