@@ -28,20 +28,20 @@ def attention(query, key, value, mask=None, dropout=None):
     return torch.matmul(p_attn, value), p_attn
 
 
-def subsequent_mask(size):
+def subsequent_mask(size): # 创建一个下三角矩阵，用于屏蔽未来的信息。
     attn_shape = (1, size, size)
     subsequent_mask = np.triu(np.ones(attn_shape), k=1).astype('uint8')
     return torch.from_numpy(subsequent_mask) == 0
 
 
-class Transformer(nn.Module):
+class Transformer(nn.Module): 
     def __init__(self, encoder, decoder, src_embed, tgt_embed, rm):
         super(Transformer, self).__init__()
         self.encoder = encoder
         self.decoder = decoder
-        self.src_embed = src_embed
-        self.tgt_embed = tgt_embed
-        self.rm = rm
+        self.src_embed = src_embed # 源语言的嵌入层
+        self.tgt_embed = tgt_embed # 目标语言的嵌入层
+        self.rm = rm # 关系记忆模块
 
     def forward(self, src, tgt, src_mask, tgt_mask):
         return self.decode(self.encode(src, src_mask), src_mask, tgt, tgt_mask)
@@ -80,7 +80,7 @@ class EncoderLayer(nn.Module):
         return self.sublayer[1](x, self.feed_forward)
 
 
-class SublayerConnection(nn.Module):
+class SublayerConnection(nn.Module): # 子层连接
     def __init__(self, d_model, dropout):
         super(SublayerConnection, self).__init__()
         self.norm = LayerNorm(d_model)
@@ -90,7 +90,7 @@ class SublayerConnection(nn.Module):
         return x + self.dropout(sublayer(self.norm(x)))
 
 
-class LayerNorm(nn.Module):
+class LayerNorm(nn.Module): # 层标准化
     def __init__(self, features, eps=1e-6):
         super(LayerNorm, self).__init__()
         self.gamma = nn.Parameter(torch.ones(features))
@@ -131,7 +131,7 @@ class DecoderLayer(nn.Module):
         return self.sublayer[2](x, self.feed_forward, memory)
 
 
-class ConditionalSublayerConnection(nn.Module):
+class ConditionalSublayerConnection(nn.Module): #条件层连接
     def __init__(self, d_model, dropout, rm_num_slots, rm_d_model):
         super(ConditionalSublayerConnection, self).__init__()
         self.norm = ConditionalLayerNorm(d_model, rm_num_slots, rm_d_model)
@@ -141,7 +141,7 @@ class ConditionalSublayerConnection(nn.Module):
         return x + self.dropout(sublayer(self.norm(x, memory)))
 
 
-class ConditionalLayerNorm(nn.Module):
+class ConditionalLayerNorm(nn.Module): # 条件层标准化模块
     def __init__(self, d_model, rm_num_slots, rm_d_model, eps=1e-6):
         super(ConditionalLayerNorm, self).__init__()
         self.gamma = nn.Parameter(torch.ones(d_model))
@@ -203,7 +203,7 @@ class MultiHeadedAttention(nn.Module):
         return self.linears[-1](x)
 
 
-class PositionwiseFeedForward(nn.Module):
+class PositionwiseFeedForward(nn.Module): # 位置前馈全连接网络模块
     def __init__(self, d_model, d_ff, dropout=0.1):
         super(PositionwiseFeedForward, self).__init__()
         self.w_1 = nn.Linear(d_model, d_ff)
@@ -214,7 +214,7 @@ class PositionwiseFeedForward(nn.Module):
         return self.w_2(self.dropout(F.relu(self.w_1(x))))
 
 
-class Embeddings(nn.Module):
+class Embeddings(nn.Module): # 词嵌入
     def __init__(self, d_model, vocab):
         super(Embeddings, self).__init__()
         self.lut = nn.Embedding(vocab, d_model)
@@ -224,7 +224,7 @@ class Embeddings(nn.Module):
         return self.lut(x) * math.sqrt(self.d_model)
 
 
-class PositionalEncoding(nn.Module):
+class PositionalEncoding(nn.Module): # 位置编码
     def __init__(self, d_model, dropout, max_len=5000):
         super(PositionalEncoding, self).__init__()
         self.dropout = nn.Dropout(p=dropout)
@@ -243,7 +243,7 @@ class PositionalEncoding(nn.Module):
         return self.dropout(x)
 
 
-class RelationalMemory(nn.Module):
+class RelationalMemory(nn.Module): # 关系记忆模块，用于处理序列中的关系信息
 
     def __init__(self, num_slots, d_model, num_heads=1):
         super(RelationalMemory, self).__init__()
