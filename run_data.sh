@@ -1,0 +1,12 @@
+python main.py \
+--image_dir /root/autodl-tmp/data_pre/images/ \
+--ann_path /root/autodl-tmp/data_pre/annotation_split.json \
+--dataset_name iu_xray \
+--max_seq_length 60 \
+--threshold 3 \
+--batch_size 16 \
+--epochs 100 \
+--save_dir results/pre_data_concat \
+--step_size 50 \
+--gamma 0.1 \
+--seed 9223

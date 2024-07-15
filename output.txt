@@ -1,0 +1,301 @@
+Script started on 2024-06-24 12:11:11+08:00 [TERM="xterm-256color" TTY="/dev/pts/2" COLUMNS="151" LINES="20"]
+root@autodl-container-755011aa52-d0da9553:~/autodl-tmp/r2gen/R2Gen# script output.txt
+Script started, file is output.txt
+root@autodl-container-755011aa52-d0da9553:~/autodl-tmp/r2gen/R2Gen# history
+    1  python ocr_word.py
+    2  pip install pytesseract
+    3  python ocr_word.py
+    4  pip install docs
+    5  python ocr_word.py
+    6  pip install docx
+    7  python ocr_word.py
+    8  pip install exceptions
+    9  pip  uninstall docx
+   10  pip  install python-docx
+   11  python ocr_word.py
+   12  cd autodl-tmp
+   13  cd r2gen
+   14  git clone https://github.com/Sihan0229/R2Gen.git
+   15  ls
+   16  unzip R2Gen-main.zip
+   17  pip install bypy
+   18  bypy info
+   19  bypy
+   20  bypy list
+   21  ls
+   22  cd R2Gen-main
+   23  ls
+   24  cd data
+   25  mkdir data/iu_xray
+   26  mkdir iu_xray
+   27  ls
+   28  mkdir mimic_cxr
+   29  ls
+   30  cd iu_xray
+   31  bypy list
+   32  bypy downdir /model_iu_xray.pat
+   33  bypy downdir /model_iu_xray.pth
+   34  cd..
+   35  cd ..
+   36  cd mimic_cxr
+   37  bypy downdir /model_mimic_cxr.pth
+   38  bypy downdir /r2gen
+   39  python main.py --image_dir data/iu_xray/images/ --ann_path data/iu_xray/annotation.json --dataset_name iu_xray --max_seq_length 60 --threshold 3 --batch_size 16 --epochs 100 --save_dir results/iu_xray --step_size 50 --gamma 0.1 --seed 9223
+   40  cd..
+   41  cd ..
+   42  python main.py --image_dir data/iu_xray/images/ --ann_path data/iu_xray/annotation.json --dataset_name iu_xray --max_seq_length 60 --threshold 3 --batch_size 16 --epochs 100 --save_dir results/iu_xray --step_size 50 --gamma 0.1 --seed 9223
+   43  cd R2Gen-main
+   44  python main.py --image_dir data/iu_xray/images/ --ann_path data/iu_xray/annotation.json --dataset_name iu_xray --max_seq_length 60 --threshold 3 --batch_size 16 --epochs 100 --save_dir results/iu_xray --step_size 50 --gamma 0.1 --seed 9223
+   45  pip install pandas
+   46  python main.py --image_dir data/iu_xray/images/ --ann_path data/iu_xray/annotation.json --dataset_name iu_xray --max_seq_length 60 --threshold 3 --batch_size 16 --epochs 100 --save_dir results/iu_xray --step_size 50 --gamma 0.1 --seed 9223
+   47  cd data
+   48  cd iu_xray
+   49  unzip iu_xray.zip
+   50  cd ..
+   51  nohup ./run_iu_xray.sh &
+   52  ls -l
+   53  $ nohup ./run_iu_xray.sh
+   54  sudo nohup ./run_iu_xray.sh
+   55  which nohup--
+   56  yum install coreutils
+   57  pip install coreutils
+   58  which nohup
+   59  cd /usr/bin/nohup
+   60  cd /usr/bin
+   61  which nohup
+   62  vi ~/ .bash_profile
+   63  cd autodl-tmp
+   64  ls
+   65  cd r2gen
+   66  ls
+   67  cd R2Gen-main
+   68  nohup --version
+   69  chmod +x run_iu_xray.sh
+   70  nohup ./run_iu_xray.sh &
+   71  ps -aux
+   72  python /root/.vscode-server/extensions/ms-python.python-2024.4.1/python_files/printEnvVariablesToFile.py /root/.vscode-server/extensions/ms-python.python-2024.4.1/python_files/deactivate/bash/envVars.txt
+   73  nohup ./run_iu_xray.sh
+   74  cd autodl-tmp
+   75  cd r2gen
+   76  cd R2Gen-mian
+   77  cd R2Gen-main
+   78  git config --global user.name "sihan0229"
+   79  git config --global user.email "1109458800@qq.com"
+   80  openssh-client openssh-server
+   81  ps -e | grep sshd
+   82  ssh-keygen -t rsa -C "1109458800@qq.com"
+   83  cd /root/.ssh
+   84  ls -a
+   85  cat id_rsa.pub
+   86  cd /root/autodl-tmp/r2gen/R2Gen-main
+   87  git remote -v
+   88  cd ..
+   89  git clone https://github.com/Sihan0229/R2Gen.git
+   90  git clone git@github.com:Sihan0229/R2Gen.git
+   91  cp -Rf /root/autodl-tmp/r2gen/R2Gen-main/data/* /root/autodl-tmp/r2gen/R2Gen/data/
+   92  cd R2Gen
+   93  ls
+   94  git reset --hard HEAD^
+   95  git add main.py
+   96  git commit -m 'just a test'
+   97  git pull
+   98  torch -version
+   99  /root/miniconda3/bin/python /root/autodl-tmp/r2gen/R2Gen/test.py
+  100  /root/miniconda3/bin/pip install opencv-python==4.4.0.42
+  101  /root/miniconda3/bin/python /root/autodl-tmp/r2gen/R2Gen/test.py
+  102  ./run_iu_xray.sh
+  103  chmod u+x run_iu_xray.sh
+  104  ./run_iu_xray.sh
+  105  nohup ./run_iu_xray.sh &
+  106  jobs
+  107  java -version
+  108  udo apt update
+  109  sudo apt update
+  110  sudo apt install default-jdk
+  111  java -version
+  112  nano ~/.bashrc
+  113  vim ~/.bashrc
+  114  source ~/.bashrc
+  115  vim ~/.bashrc
+  116  source ~/.bashrc
+  117  vim ~/.bashrc
+  118  source ~/.bashrc
+  119  java -version
+  120  nohup ./run_iu_xray.sh &
+  121  jobs
+  122  python /root/.vscode-server/extensions/ms-python.python-2024.4.1/python_files/printEnvVariablesToFile.py /root/.vscode-server/extensions/ms-python.python-2024.4.1/python_files/deactivate/bash/envVars.txt
+  123  rm -rf /root/autodl-tmp/r2gen/R2Gen-main
+  124  python /root/.vscode-server/extensions/ms-python.python-2024.4.1/python_files/printEnvVariablesToFile.py /root/.vscode-server/extensions/ms-python.python-2024.4.1/python_files/deactivate/bash/envVars.txt
+  125  cd /root/autodl-tmp/mlhw
+  126  git config --global user.name sihan0229
+  127  git config --global user.email 1109458800@qq.com
+  128  git init
+  129  git status
+  130  git add README.md
+  131  git add .
+  132  git commit -m "初始化"
+  133  git remote add origin git@github.com:Sihan0229/XJTU-AUTO300527-homework.git
+  134  git push
+  135  git push --set-upstream origin master
+  136  git status
+  137  git rm --cached Caltech_WebFaces.tar
+  138  git commit -m "Remove large file from tracking"
+  139  git push origin master
+  140  git rm --cached Caltech_WebFaces.tar
+  141  git reset
+  142  git checkout .
+  143  git init
+  144  add README.md
+  145  cd hw1
+  146  git status
+  147  git clone git@github.com:Sihan0229/XJTU-AUTO300527-homework.git
+  148  cd XJTU-AUTO300527-homework
+  149  git add .
+  150  git status
+  151  git commit -m "初始化"
+  152  git push -u origin main
+  153  git branch -M main
+  154  git push -u origin main
+  155  cd ..
+  156  xs ..
+  157  untar -xyf Caltech_WebFaces.tar
+  158  tar -xyf Caltech_WebFaces.tar
+  159  tar -xvf Caltech_WebFaces.tar
+  160  ls
+  161  mv Caltech_webFaces.tar Caltech_webFaces/
+  162  mv Caltech_WebFaces.tar Caltech_WebFaces/
+  163  ls
+  164  jobs
+  165  python /root/.vscode-server/extensions/ms-python.python-2024.4.1/python_files/printEnvVariablesToFile.py /root/.vscode-server/extensions/ms-python.python-2024.4.1/python_files/deactivate/bash/envVars.txt
+  166  python /root/.vscode-server/extensions/ms-python.python-2024.4.1/python_files/printEnvVariablesToFile.py /root/.vscode-server/extensions/ms-python.python-2024.4.1/python_files/deactivate/bash/envVars.txt
+  167  /root/miniconda3/bin/python "/root/autodl-tmp/mlhw/hw1/XJTU-AUTO300527-homework/face recognition/disp_images.py"
+  168  python /root/.vscode-server/extensions/ms-python.python-2024.4.1/python_files/printEnvVariablesToFile.py /root/.vscode-server/extensions/ms-python.python-2024.4.1/python_files/deactivate/bash/envVars.txt
+  169  cd autodl-tmp
+  170  ls
+  171  mkdir 123 autodl-tmp/staingan
+  172  ls
+  173  cd staingan
+  174  git config --global user.name sihan0229
+  175  git config --global user.email 1109458800@qq.com
+  176  git clone git@github.com:Sihan0229/StainGAN.git
+  177  python /root/.vscode-server/extensions/ms-python.python-2024.4.1/python_files/printEnvVariablesToFile.py /root/.vscode-server/extensions/ms-python.python-2024.4.1/python_files/deactivate/bash/envVars.txt
+  178  cd autodl-tmp
+  179  ls
+  180  cd staingam
+  181  cd staingan
+  182  ls
+  183  mkdir data
+  184  ls
+  185  cp HE_256_imgs.zip data
+  186  ls
+  187  cd data
+  188  ls
+  189  unzip HE_256_imgs.zip
+  190  cd..
+  191  cd ..
+  192  wget -c --referer=https://pan.baidu.com/s/1mIzSewImtEisclPtTHGSyw -0 CAMELYON17 javascript:;
+  193  wget -c --referer=https://pan.baidu.com/s/1mIzSewImtEisclPtTHGSyw -O CAMELYON17 文件下载链接
+  194  wget -c --referer=https://pan.baidu.com/s/1mIzSewImtEisclPtTHGSyw -0 CAMELYON17
+  195  wget https://edef1.pcloud.com/cBZks8QPBZHLneBdZZZjyRI7kZ2ZZFP4ZkZr9lodZGHZH 198  ls
+  199  mkdir A06
+  200  tar -xzvf A06.tar.gz -C A06
+  201  mkdir H06
+  202  tar -xzvf A06.tar.gz -C H06
+  203  rm H06
+  204  ls
+  205  rm H06/
+  206  rm -rvi H06/
+  207  ls
+  208  rm -rf H06/
+  209  ls
+  210  mkdir H06
+  211  tar -xzvf H06.tar.gz -C H06
+  212  matlab -v
+  213  sudo apt install lynx
+  214  apt install lynx
+  215  lynx https://zhuanlan.zhihu.com/p/306587459
+  216  python /root/.vscode-server/extensions/ms-python.python-2024.4.1/python_files/printEnvVariablesToFile.py /root/.vscode-server/extensions/ms-python.python-2024.4.1/python_files/deactivate/bash/envVars.txt
+  217  python /root/.vscode-server/extensions/ms-python.python-2024.6.0/python_files/printEnvVariablesToFile.py /root/.vscode-server/extensions/ms-python.python-2024.6.0/python_files/deactivate/bash/envVars.txt
+  218  cd autodl-tmp
+  219  ls
+  220  cd mlhw
+  221  ls
+  222  cd hw1
+  223  ls
+  224  cd TrajecoryData
+  225  ls
+  226  cd TrajectoryData
+  227  ls
+  228  unzip TrajectoryData_student003.zip
+  229  unzip TrajectoryData_students003.zip
+  230  ls
+  231  cd autodl-tmp
+  232  ls
+  233  cd staingan
+  234  ls
+  235  cd StainGAN
+  236  ls
+  237  chmod +x run_train.sh
+  238  chmod +x run_our_data.sh
+  239  ./run_train.sh
+  240  ./run_our_data.sh
+  241  nohup ./run_our_data.sh &
+  242  pip install dominate
+  243  nohup ./run_our_data.sh &
+  244  pip install scipy
+  245  nohup ./run_our_data.sh &
+  246  nohup ./run_our_data.sh &
+  247  python -m visdom.server
+  248  nohup ./run_our_data.sh &
+  249  python -m visdom.server
+  250  ssh -L 8097:localhost:8097 -p 14533 root@region-41.seetacloud.com
+  251  python -m visdom.server
+  252  unminimize
+  253  python -m visdom.server
+  254  sudo lsof -i :8097
+  255  ls of -i :8097
+  256  lsof -i :8097
+  257  ./run_our_data.sh
+  258  cd autodl-tmp
+  259  ls
+  260  cd staingan
+  261  ls
+  262  cd StainGAN
+  263  ls
+  264  ./run_our_data.sh
+  265  ps -ef | grep visdom.server
+  266  ssh -L 8097:localhost:8097 -p 14533 root@region-41.seetacloud.com
+  267  ssh -4 -L 8097:localhost:8097 -p 14533 root@region-41.seetacloud.com
+  268  python -m visdom.server
+  269  INFO:root:Application Started
+  270  INFO:root:Working directory: /root/.visdom
+  271  You can navigate to http://localhost:8097
+  272  python /root/.vscode-server/extensions/ms-python.python-2024.6.0/python_files/printEnvVariablesToFile.py /root/.vscode-server/extensions/ms-python.python-2024.6.0/python_files/deactivate/bash/envVars.txt
+  273  pip install skimage
+  274  pip install scikit-image
+  275  pip install -U scikit-learn
+  276  /root/miniconda3/bin/python "/root/autodl-tmp/mlhw/hw1/XJTU-AUTO300527-homework/face recognition/testgpt.py"
+  277  python /root/.vscode-server/extensions/ms-python.python-2024.6.0/python_files/printEnvVariablesToFile.py /root/.vscode-server/extensions/ms-python.python-2024.6.0/python_files/deactivate/bash/envVars.txt
+  278  python /root/.vscode-server/extensions/ms-python.python-2024.6.0/python_files/printEnvVariablesToFile.py /root/.vscode-server/extensions/ms-python.python-2024.6.0/python_files/deactivate/bash/envVars.txt
+  279  sudo apt update
+  280  apt install texlive-xetex
+  281  pip install pandoc
+  282  ./run_our_data.sh
+  283  cd StainGAN
+  284  ./run_our_data.sh
+  285  /bin/python3 /root/.vscode-server/extensions/ms-python.python-2024.6.0/python_files/printEnvVariablesToFile.py /root/.vscode-server/extensions/ms-python.python-2024.6.0/python_files/deactivate/bash/envVars.txt
+  286  cd autodl-tmp
+  287  ls
+  288  cd staingana
+  289  cd staingan
+  290  ls
+  291  rm -r MITOS-ATYPIA-14
+  292  ls
+  293  python /root/.vscode-server/extensions/ms-python.python-2024.6.0/python_files/printEnvVariablesToFile.py /root/.vscode-server/extensions/ms-python.python-2024.6.0/python_files/deactivate/bash/envVars.txt
+  294  cd autodl-tmp
+  295  rm -rf staingan
+  296  ls
+  297  pip install google-cloud-translate
+  298  pip install requests
+  299  /root/miniconda3/bin/python /root/autodl-tmp/data_pre/trans.py
+  300  /root/minic
